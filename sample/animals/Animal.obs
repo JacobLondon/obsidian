@@ -1,0 +1,7 @@
+
+class Animal {
+    private string name;
+    fn new: string name {
+        self.name = name;
+    };
+};

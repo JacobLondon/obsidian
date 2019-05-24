@@ -1,0 +1,22 @@
+include "animals/Animal.obs";
+
+// single inheritance only
+class Dog: Animal {
+    private string breed, fur_color;
+    public fn new: string name, breed, fur_color {
+        super: name;
+        self.breed = breed;
+        self.fur_color = fur_color;
+    };
+};
+
+class GermanShephard: Dog {
+    public fn new: string name, fur_color {
+        super: name, "German Shephard", fur_color;
+    };
+
+    public fn str {
+        return f"{breed} named {name} with {fur_color} fur.";
+    };
+};
+

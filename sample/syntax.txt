@@ -1,0 +1,43 @@
+commenting:
+// ...              line
+/* ... */           multiline
+/** ... */          doc
+
+case sensitive
+snake case
+
+variable identifier:
+[_a-zA-Z][_a-zA-Z0-9]*
+
+ignore whitespace and line breaks
+
+Assignment and Declaration:
+let int a = 50;
+mut int a = 50;
+
+Expression Grouping:
+( ... )
+
+Block Grouping:
+{ ... }
+
+Equality:
+== and !=
+
+Comparison
+< > <= >=
+
+Loops:
+while true {}
+do {
+
+} until true;
+loop {
+    break;
+}
+for a = 1..50 {
+
+}
+for a : list {
+    continue;
+}

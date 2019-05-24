@@ -1,0 +1,94 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Obsidian",
+	"scopeName": "source.obs",
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"comment": "Control Flow",
+					"match": "\\b(if|else|while|for|return|break|continue|do|until|loop)\\b",
+					"name": "keyword.control.obs"
+				},
+				{
+					"comment": "Other",
+					"match": "\\b(def|using|include|try|catch|finally|except|super|self|public|private|fn|class|enum)\\b",
+					"name": "keyword.other.obs"
+				},
+				{
+					"comment": "Comments",
+					"match": "\\/\\/.*",
+					"name": "comment.line.obs"
+				},
+				{
+					"comment": "Multiline Comments",
+					"begin": "/\\*",
+					"end": "\\*/",
+					"name": "comment.block.obs"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.obs",
+			"begin": "\"|'",
+			"end": "\"|'",
+			"patterns": [
+				{
+					"name": "constant.character.escape.obs",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"comment": "Numeric Constants",
+			"match": "\\b(\\d)+(\\.\\d+)?",
+			"name": "constant.numeric.obs"
+		},
+		{
+			"comment": "Non Numeric Constants",
+			"match": "\\b(false|true|null)\\b",
+			"name": "constant.language.obs"
+		},
+		{
+			"comment": "Basic Types",
+			"match": "\\b(ref|const|static|let|mut|long|void|auto|u?int|char|float|double|bool|string)\\b",
+			"name": "storage.type.numeric.obs"
+		},
+		{
+			"comment": "Built-in Functions",
+			"match": "\\b(print(ln)?|new)\\b",
+			"name": "support.function.obs"
+		},
+		{
+			"comment": "Symbol Operators",
+			"match": "(->|!|\\+|-|\\/|\\*|%|\\+=|-=|\\/=|\\*=|%=|==|!=|::?|\\.\\.)",
+			"name": "keyword.other.obs"
+		},
+		{
+			"comment": "Class Definition Names",
+			"match": "(?<=class)\\s+[_a-zA-Z_][_a-zA-Z0-9]*",
+			"name": "entity.name.class.obs"
+		},
+		{
+			"comment": "Function Definition Names",
+			"match": "(?<=fn)\\s+[_a-zA-Z_][_a-zA-Z0-9]*",
+			"name": "entity.name.function.obs"
+		},
+		{
+			"comment": "Enum Definition Names",
+			"match": "(?<=enum)\\s*[_a-zA-Z_][_a-zA-Z0-9]*",
+			"name": "entity.name.type.obs"
+		}
+	]
+}

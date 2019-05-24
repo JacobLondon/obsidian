@@ -1,0 +1,25 @@
+{
+    "name": "obsidian-lang",
+    "displayName": "Obsidian-Lang",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.34.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "obsidian",
+            "aliases": ["Obsidian", "obsidian"],
+            "extensions": [".obs"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "obsidian",
+            "scopeName": "source.obs",
+            "path": "./syntaxes/obsidian.tmLanguage.json"
+        }]
+    }
+}
