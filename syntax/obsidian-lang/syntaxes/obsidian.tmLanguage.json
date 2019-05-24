@@ -62,7 +62,7 @@
 		},
 		{
 			"comment": "Basic Types",
-			"match": "\\b(ref|const|static|let|mut|long|void|auto|u?int|char|float|double|bool|string)\\b",
+			"match": "\\b(ref|static|let|mut|long|void|auto|(i|u)(8|16|32|64|128)|f(32|64|128)|bool|string)\\b",
 			"name": "storage.type.numeric.obs"
 		},
 		{
@@ -87,7 +87,12 @@
 		},
 		{
 			"comment": "Enum Definition Names",
-			"match": "(?<=enum)\\s*[_a-zA-Z_][_a-zA-Z0-9]*",
+			"match": "(?<=enum)\\s*[_a-zA-Z][_a-zA-Z0-9]*",
+			"name": "entity.name.type.obs"
+		},
+		{
+			"comment": "Variable Initialization",
+			"match": "[_a-zA-Z][_a-zA-Z0-9]*\\s*(?=\\=)",
 			"name": "entity.name.type.obs"
 		}
 	]

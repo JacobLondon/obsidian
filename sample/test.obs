@@ -1,7 +1,8 @@
 // use a built in library
-using system;
+using system; // import everything from system
+using algorithm.quicksort; // import just quicksort
 
-// include a user made file
+// include everything from a user made file
 include "Dog.obs";
 
 // redefinition, the left becomes the right for
@@ -13,78 +14,80 @@ enum {
     YES,
     NO,
     MAYBE
-};
+}
 
 // named enum
 enum Sizes {
     WHOLE,
     HALF,
     QUARTER
-};
+}
 
 fn main {
 
-    // no need for mut/let for empty initialization,
-    // it is mutable and uninitialized
-    [i32] mylist;
+    /*
+     * Explicit initialization
+     * not valid: let [i32] mylist;
+     * valid: let [i32] mylist = [];
+     */
 
     let i32 a = 50;         // immutable int
     let f32 b = 25.1;       // immutable float
     mut f64 c = 1.111;      // mutable double
     mut i16 d = 200;        // mutable char
     mut u32 e = 50;         // mutable unsigned int
-    i32 f;                  // uninitialized and mutable
 
     let auto cond1 = YES;
     let auto cond2 = Sizes.HALF;
 
-    fn double_num: i32 input -> i32 {
-            return input * 2;
-    };
-
     // regular for loop
     for i32 num: 1..50 {
-        let auto t = double_num: num;
+        let auto t = double_num: input=num;
         mylist.append: t;
-    };
+    }
 
     // loop multiple things
     let [i32] ex1 = [1, 2, 3];
     let [i32] ex2 = [4, 5, 6];
     for auto x1, x2: ex1, ex2 {
         println: x1 + x2;
-    };
-
-    // functional stuff?
-    fn sum_list: [i32] mylist -> i32 {
-        return auto x, xs: mylist {
-            x + sum_to: xs;
-        };
-    };
+    }
 
     // prints 1 to 50 doubled
     println: mylist;
-
     let exponent = 3;
-    let outlist = list_to_exponent: mylist, exponent;
+    let outlist = list_to_exponent: mylist=mylist, exponent=exponent;
     println: outlist;
 
     string hello = "Hello, World!";
     println: hello;
 
     // create a dog object from the Creatures module
-    let mydog = Dog: "Charlie", "Lab", "Golden";
-    let gs = GermanShephard: "Dog", "Brown";
+    let Dog mydog = Dog:
+        name="Charlie",
+        breed="Lab",
+        fur_color="Golden";
+    let auto gs = GermanShephard: name="Dog", fur_color="Brown";
 
-};
+}
+
+fn double_num: i32 input -> i32 {
+    return input * 2;
+}
+
+// functional stuff?
+fn sum_list: [i32] mylist -> i32 {
+    return auto x, xs: mylist {
+        x + sum_list: mylist=xs;
+    }
+}
 
 // can only be used in this module
 fn list_to_exponent: [i32] mylist, i32 exponent -> [i32] {
-
     // don't modify original list
     mut [i32] newlist;
     for auto a: mylist {
         newlist.append: a ** exponent;
-    };
+    }
     return newlist;
-};
+}
