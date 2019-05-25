@@ -7,7 +7,7 @@ include "Dog.obs";
 
 // redefinition, the left becomes the right for
 // the entire file or included files when used
-def NUMBER: 500;
+// def NUMBER: 500;
 
 // nameless enum
 enum {
@@ -63,11 +63,11 @@ fn main {
     println: hello;
 
     // create a dog object from the Creatures module
-    let Dog mydog = Dog:
-        name="Charlie",
-        breed="Lab",
-        fur_color="Golden";
-    let auto gs = GermanShephard: name="Dog", fur_color="Brown";
+    let Dog mydog = Dog: name="Charlie",
+                         breed="Lab",
+                         fur_color="Golden";
+    let auto gs = GermanShephard: name="Dog",
+                                  fur_color="Brown";
 
 }
 
@@ -85,7 +85,7 @@ fn sum_list: [i32] mylist -> i32 {
 // can only be used in this module
 fn list_to_exponent: [i32] mylist, i32 exponent -> [i32] {
     // don't modify original list
-    mut [i32] newlist;
+    mut [i32] newlist = [];
     for auto a: mylist {
         newlist.append: a ** exponent;
     }
