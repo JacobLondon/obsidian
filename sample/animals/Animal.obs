@@ -2,7 +2,12 @@
 class Animal {
 
     // all self.xxxx variables become instances variables
-    fn new: string name {
-        let self.name = name;
+    public fn new: string name {
+        // implicitly private, explicitly mutable
+        mut string self.name = name;
+    }
+
+    fn destroy {
+        // deconstructor?
     }
 }

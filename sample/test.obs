@@ -5,16 +5,14 @@ using algorithm.quicksort; // import just quicksort
 // include everything from a user made file
 include "Dog.obs";
 
-// redefinition, the left becomes the right for
-// the entire file or included files when used
-// def NUMBER: 500;
-
-// nameless enum
-enum {
-    YES,
-    NO,
-    MAYBE
-}
+/*
+Built in functions:
+println
+abs
+max
+min
+?
+*/
 
 // named enum
 enum Sizes {
@@ -22,7 +20,6 @@ enum Sizes {
     HALF,
     QUARTER
 }
-
 
 fn main {
 
@@ -32,43 +29,63 @@ fn main {
      * valid: let [i32] mylist = [];
      */
 
-    let i32 a = 50;         // immutable int
-    let f32 b = 25.1;       // immutable float
+    i32 a = 50;             // immutable int
+    f32 b = 25.1;           // immutable float
     mut f64 c = 1.111;      // mutable double
     mut i16 d = 200;        // mutable char
     mut u32 e = 50;         // mutable unsigned int
 
-    let auto cond1 = YES;
-    let auto cond2 = Sizes.HALF;
+    // valid swapping
+    mut i32 a1 = 5;
+    mut i32 a2 = 10;
+    a1, a2 = a2, a1;
 
-    // regular for loop
+    // enum variable
+    auto cond1 = Sizes.HALF;
+
+    // multiple initialization
+    let auto a1 = a2 = a3 = a4 = 10;
+
+
+    // regular for loop, num itself is immutable
     for i32 num: 1..50 {
-        let auto t = double_num: input=num;
+        auto t = double_num: input=num;
         mylist.append: t;
     }
 
     // loop multiple things
-    let [i32] ex1 = [1, 2, 3];
-    let [i32] ex2 = [4, 5, 6];
+    [i32] ex1 = [1, 2, 3];
+    [i32] ex2 = [4, 5, 6];
+    // auto applied to x1 and x2
     for auto x1, x2: ex1, ex2 {
         println: x1 + x2;
     }
 
     // prints 1 to 50 doubled
     println: mylist;
-    let exponent = 3;
-    let outlist = list_to_exponent: mylist=mylist, exponent=exponent;
+    i32 exponent = 3;
+    [i32] outlist = list_to_exponent: mylist=mylist, exponent=exponent;
     println: outlist;
 
     string hello = "Hello, World!";
     println: hello;
 
     // create a dog object from the Creatures module
-    let Dog mydog = Dog: name="Charlie",
+    Dog mydog = Dog: name="Charlie",
                          breed="Lab",
                          fur_color="Golden";
-    let auto gs = GermanShephard: name="Dog",
+    auto gs = GermanShephard: name="Dog",
                                   fur_color="Brown";
+
+    // built in functions return a new object
+    [i32] unsorted_list = [5, 3, 6, 1, 2];
+    // to use quicksort, must call where it is from
+    println: algorithm.quicksort: unsorted_list;
+
+    // set notation
+    {i32} myset = {1, 3, 2, 4};
+    // dictionary notation
+    mut {auto, auto} mydict = {1: "one", 2: "two"};
 
 }
 

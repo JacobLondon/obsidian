@@ -5,14 +5,23 @@ class Dog: Animal {
     
     public fn new: string name, breed, fur_color {
         super: name=name;
-        let self.breed = breed;
-        let self.fur_color = fur_color;
+        // explicitly public
+        public string self.breed = breed;
+        // explicitly private
+        private string self.fur_color = fur_color;
+        
+    }
+
+    fn example {
+        println: "This method is implicitly private";
     }
 }
 
 class GermanShephard: Dog {
     public fn new: string name, fur_color {
-        super: name=name, breed="German Shephard", fur_color=fur_color;
+        super: name=name,
+               breed="German Shephard",
+               fur_color=fur_color;
     }
 
     public fn str {
