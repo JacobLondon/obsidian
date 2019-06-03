@@ -109,3 +109,25 @@ fn list_to_exponent: [i32] mylist, i32 exponent -> [i32] {
     }
     return newlist;
 }
+
+/*
+fn test: const | copy -> ref {
+
+}
+*/
+fn use_test: i32 a_const -> i32 out {
+    out = a_const * 2;
+}
+fn use_test2: i32 a_const -> i32 out1, f32 out2 {
+    out1 = a_const * 2;
+    out2 = a_const / 1.2;
+}
+fn use_test3: i32 a_const | i32 a_copy -> i32 err {
+    // some operation
+    err = -1;
+}
+
+// call use_test2
+i32 o1;
+f32 o2;
+use_test2: a_const=5, out1=o1, out2=o2;
